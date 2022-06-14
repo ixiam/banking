@@ -1,0 +1,26 @@
+{
+	"generate": 1,
+    "auto_exec": false,
+    "threshold": 0.1,
+    "mode": "default",
+	"accepted_contribution_states": ["Pending"],
+    "received_date_minimum": "-60 days",
+    "received_date_maximum": "+1 days",
+    "date_penalty": 0.2,
+    "payment_instrument_penalty": 0.2,
+    "amount_relative_minimum": 1.0,
+    "amount_relative_maximum": 1.0,
+    "amount_absolute_minimum": 0,
+    "amount_absolute_maximum": 0,
+    "amount_penalty": 1.0,
+    "value_propagation": {
+        "ba.name_id": "contribution.custom_14",
+        "btx.financial_type_id": "contribution.financial_type_id",
+        "btx.campaign_id": "contribution.campaign_id"
+    },
+    "lookup_contact_by_name" : {
+        "soft_cap_probability": 0.8, 
+        "soft_cap_min": 10, 
+        "hard_cap_probability": 0.4
+    }
+}

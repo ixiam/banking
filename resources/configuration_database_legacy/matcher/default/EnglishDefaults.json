@@ -1,0 +1,27 @@
+{
+	"generate": 1,
+    "auto_exec": false,
+    "manual_enabled": true,
+    "manual_probability": "50%",
+    "manual_show_always": true,
+    "manual_title": "Manually processed",
+    "manual_message": "Select this <strong>after</strong> you have manually processed this transaction.",
+    "manual_contribution": "Please enter the resulting contribution ID here (if applicable):",
+    "manual_default_source": "Offline",
+    "manual_default_financial_type_id": 1,
+    "ignore_enabled": true,
+    "ignore_show_always": true,
+    "ignore_probability": "0.1",
+    "ignore_title": "Not CiviCRM related",
+    "ignore_message": "Choose this option if you are positive that this transaction has nothing to do with CiviCRM.",
+    "value_propagation": {
+        "ba.name_id": "contribution.custom_14",
+        "btx.financial_type_id": "contribution.financial_type_id",
+        "btx.campaign_id": "contribution.campaign_id"
+    },
+    "lookup_contact_by_name" : {
+        "soft_cap_probability": 0.8, 
+        "soft_cap_min": 10, 
+        "hard_cap_probability": 0.4
+    }
+}

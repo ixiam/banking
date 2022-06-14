@@ -1,0 +1,208 @@
+Version History
+===============
+
+version 0.8
+==================================
+- TODO
+- Developers note the signature change of
+  `CRM_Banking_PluginModel_PostProcessor::shouldExecute` (and thus overriding
+   methods in Postprocessor implementations) to include a new boolean parameter
+   `$preview` denoting whether the method is being called during Postprocessor
+   preview or not. The method might have to be respond differently, since e.g.
+   no contributions have been processed at the preview stage.
+
+
+version 0.7
+==================================
+- TODO
+
+
+version 0.6
+==================================
+- Configuration UI (#102)
+- PostProcessors (#67)
+- Analysis Runner (#173)
+- PHP7 Compatibility (#187)
+- Added logging (#164, #144)
+- Improved bank account lookup (#178)
+- Improved bank account dedupe (#189)
+- Improved RegexAnalyser (#185)
+- More flexible API calls (#154)
+- Name-base search performance (#159)
+- Improved XML importer (#161, #162)
+- Improved review layout (#179)
+- BUG: bank_account_reference missing index (#158)
+- BUG: CiviBanking assigns contributions to contacts in trash (#166)
+
+
+version 0.5.3
+==================================
+- SEPA matcher uses batch reference (#152)
+- SEPA improved cancellation (#135)
+- CSV importer line filter (#146)
+- Processing transactions by date (not ID) in overnight hook (#147)
+- Default matcher - add fallback contact (#143)
+- Default matcher - use popups (#142)
+- Importer - better warnigns (#136)
+- XML importer duplicate detection (#134)
+- Membership matcher date choice (#130)
+- Recurring matcher improvements (#129)
+- BUG: membership matcher confidence (#139)
+- BUG: broken links (#119)
+- BUG: importer references (#145)
+- BUG: entity hook (#151)
+
+
+version 0.5.2 (0.5.1 not released)
+==================================
+- greatly improved account editor (#118)
+- added bank account reference validation and normalisation (#118)
+- improvements on UI (#116, #122)
+- improved 4.6 compatibility
+- added "drop column" option to CSV importer (#115)
+- added recurring contribution matcher
+- option for a custom title for existing contribution matcher (#109)
+- added 'unset', 'sha1', 'sprint' and 'preg_replace' actions to regex analyser (#107, #116)
+- option to disable received_date check in existing contribution matcher (#103)
+- fixed/improved tx attribute lookup (#106, #111)
+- fixed/improved menu integration (#110)
+
+
+version 0.5
+===========
+- added CSV exporter (#83)
+- added bank account dedupe (#73)
+- add an analyser to connect transactions to bank accounts after import-phase (#97)
+- extended cancellation matcher to handle fees and reason (#84)
+- extended SEPA cancellation matcher (#96)
+- improved visualisation of create macher (#94)
+- added counter to new, analysed, completed filters (#90)
+- better visualisation of negative amount (#89)
+- added option for file probing to CSV importer (#80)
+- added generic penalties (#85)
+- added more features to name-based search (#93)
+- FIX #82 - last item in review omits execution info
+
+
+version 0.4.3
+=============
+- FIX #79: better prevention of multiple executions
+
+
+version 0.4.2
+=============
+- make UI more responsive (#77)
+- FIX #76: issues with parallel processing of statments
+
+
+version 0.4.1
+=============
+- improved regex analyser lookup (#72)
+- FIX #64: replace mysql_real_escape_string
+
+
+version 0.4
+===========
+- store more execution info (#71)
+- background analyser (#69)
+- XML Importer (#62)
+- FIX #68: fixed ignore matcher
+- FIX #66: JS error in default matcher
+- FIX #65: SEPA matcher cancellations
+- FIX #61: double check existing contribution matcher's reconciliation
+- FIX #57: sepa matcher date range check
+- FIX #56: removed dummy menu entry
+- FIX #55: dont_ignore list for ignore matcher
+- FIX #54: contact link in account search
+
+
+version 0.3.8
+=============
+- FIX #47: don't allow import of payments w/o dates
+- FIX #48: don't override data in manual suggestion
+- FIX: flawed German translation caused problems with importer dry run
+
+
+version 0.3.7
+=============
+- FIX: payment view same contact shown repeatedly
+- FIX: payment view title wrong
+- FIX: dashboard was one week off
+- FIX: minor fixes in matcher_create
+- RegexAnalyser: added mapping action
+
+
+version 0.3.6
+=============
+- FIX: php warning in dashboard (when no payments completeted)
+- FIX: percentages in statment view
+
+
+version 0.3.5
+=============
+- added dashboard
+- enable auto execution of matches
+- added copy_ltrim_zeros action to matcher_regex
+- edit a contact's bank accounts with 'delete contacts' permission
+
+
+version 0.3.4
+=============
+- FIX: review/process last payment in batch
+- FIX: invert statement list order
+- FIX: matcher_existing don't propose test contributions
+- FIX: matcher_default value propagation of financial_type_id (and others)
+- sort bank info in accounts tab
+- added SEPA matcher
+- added 'if:matches' clauses to CSVImport rules
+- added lookup action to matcher_regex
+- added contact precision indicator to matcher_default
+- added contact_type filter to contact-by-name lookup
+
+
+version 0.3.3
+=============
+- FIX: improved/fixed contact-by-name lookup
+- store bank account information upon successfull reconciliation of a payment
+- automatically select suggestion when changed or clicked
+- added simple account editor
+- added "create contribution" matcher
+- added regex matcher/analyser
+- added 'if' clauses to CSVImport rules
+- FIX: execute matchers by (ascending weight)
+
+
+version 0.3.2
+=============
+- FIX: move bank accounts when merging contacts
+- FIX: translated menu
+- FIX: value propagation in some matchers
+
+
+version 0.3.1
+=============
+- added a simple summary tab showing the accounts
+- FIX: matcher:existing_contributions: fixed rating system on smaller amounts
+- FIX: notification text of processed payment
+- FIX: matcher:default_options: if amount negative, set status to 'cancelled'
+
+
+version 0.3
+===========
+ - CiviCRM 4.4 compability
+ - FIX: 'show payments' will show selected payments only
+ - added target account filter to payment view
+ - added 'skip processed' in review screen
+ - added 'back' in review screen
+ - added notification of processed payment
+ - matcher:default_options: 'show contact' button will go to search if no contact selected
+ - FIX: matcher:default_options: fixed issue with decimal total_amount when creating contributions
+ - only administrators can delete statements/payments
+ - FIX: warning if no statement/payment is selected for review
+ - matcher:existing_contributions: added configurable payment_instrument mismatch penalty
+ - FIX: matcher:existing_contributions: don't process negative amounts in default mode
+
+
+ pre0.3
+ ======
+ - Developer version, no records
