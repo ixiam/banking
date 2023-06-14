@@ -20,7 +20,14 @@
 class CRM_Banking_Config {
 
   /**
+   * Setting for the transaction list cutoff
+   */
+  const SETTING_TRANSACTION_LIST_CUTOFF = 'transaction_list_cutoff';
+
+  /**
    * Should the bank account dedupe be done in a lenient way?
+   *
+   * @return boolean
    */
   public static function lenientDedupe() {
     $value = CRM_Core_BAO_Setting::getItem('CiviBanking', 'lenient_dedupe');
@@ -28,6 +35,35 @@ class CRM_Banking_Config {
       return FALSE;
     } else {
       return TRUE;
+    }
+  }
+
+  /**
+   * The maximum amount of transaction to be shown on the screen
+   *
+   * @return integer
+   */
+  public static function transactionViewCutOff() {
+    $cutoff = (int) Civi::settings()->get(CRM_Banking_Config::SETTING_TRANSACTION_LIST_CUTOFF);
+    if (empty($cutoff)) {
+      $cutoff = 2000;
+    }
+    return $cutoff;
+  }
+
+  /**
+   * Return a sql INTERVAL expression to cut off the completed transactions horizon
+   *
+   * @return string
+   *   SQL interval expression
+   */
+  public static function getRecentlyCompletedStatementCutoff() : string
+  {
+    $config_setting = (int) Civi::settings()->get('recently_completed_cutoff');
+    if (!empty($config_setting)) {
+      return "INTERVAL {$config_setting} MONTH";
+    } else {
+      return '';
     }
   }
 }
